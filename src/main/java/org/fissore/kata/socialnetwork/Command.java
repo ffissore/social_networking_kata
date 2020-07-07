@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface Command {
 
-    boolean canHandle(String input);
+    boolean canHandle(String[] input);
 
-    List<String> handle(String input);
+    List<String> handle(String[] input);
 
 }

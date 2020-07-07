@@ -13,7 +13,8 @@ public class PostingCommandTest {
     public void posting() {
         MessageStorage messageStorage = new MessageStorage();
         PostingCommand postingCommand = new PostingCommand(messageStorage);
-        postingCommand.handle("federico -> hello world!");
+        String[] inputParts = new CommandLineParser().parse("federico -> hello world!");
+        postingCommand.handle(inputParts);
 
         List<Message> messages = messageStorage.list();
         assertEquals(1, messages.size());

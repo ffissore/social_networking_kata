@@ -1,7 +1,9 @@
 package org.fissore.kata.socialnetwork;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PostingCommand implements Command {
 
@@ -12,15 +14,14 @@ public class PostingCommand implements Command {
     }
 
     @Override
-    public boolean canHandle(String input) {
-        return input.contains(" -> ");
+    public boolean canHandle(String[] input) {
+        return input.length > 1 && "->".equals(input[1]);
     }
 
     @Override
-    public List<String> handle(String input) {
-        String[] parts = input.split(" -> ");
-        String user = parts[0];
-        String message = parts[1];
+    public List<String> handle(String[] input) {
+        String user = input[0];
+        String message = Arrays.stream(input).skip(2).collect(Collectors.joining(" "));
 
         messageStorage.add(user, message);
 

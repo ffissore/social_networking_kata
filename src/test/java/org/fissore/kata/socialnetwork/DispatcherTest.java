@@ -12,14 +12,15 @@ public class DispatcherTest {
     @Test
     public void unknownCommand() {
         Dispatcher dispatcher = new Dispatcher();
-        Optional<Command> command = dispatcher.findCommandFor("whatever");
+        Optional<Command> command = dispatcher.findCommandFor(new String[0]);
         assertFalse(command.isPresent());
     }
 
     @Test
     public void postingCommand() {
         Dispatcher dispatcher = new Dispatcher(new PostingCommand(null));
-        Optional<Command> command = dispatcher.findCommandFor("federico -> hello world!");
+        String[] inputParts = new CommandLineParser().parse("federico -> hello world!");
+        Optional<Command> command = dispatcher.findCommandFor(inputParts);
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof PostingCommand);
     }

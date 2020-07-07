@@ -12,7 +12,7 @@ public class Dispatcher {
         this.commands = Arrays.asList(commands);
     }
 
-    public Optional<Command> findCommandFor(String input) {
+    public Optional<Command> findCommandFor(String[] input) {
         return commands.stream()
             .filter(command -> command.canHandle(input))
             .findFirst();
