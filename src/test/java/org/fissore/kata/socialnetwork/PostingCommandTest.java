@@ -16,7 +16,7 @@ public class PostingCommandTest {
         String[] inputParts = new CommandLineParser().parse("federico -> hello world!");
         postingCommand.handle(inputParts);
 
-        List<Message> messages = messageStorage.list();
+        List<Message> messages = messageStorage.list("federico");
         assertEquals(1, messages.size());
         Message message = messages.get(0);
         assertEquals("federico", message.getUser());

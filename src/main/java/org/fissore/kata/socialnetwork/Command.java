@@ -6,6 +6,6 @@ public interface Command {
 
     boolean canHandle(String[] input);
 
-    List<String> handle(String[] input);
+    List<Message> handle(String[] input);
 
 }

@@ -19,7 +19,7 @@ public class PostingCommand implements Command {
     }
 
     @Override
-    public List<String> handle(String[] input) {
+    public List<Message> handle(String[] input) {
         String user = input[0];
         String message = Arrays.stream(input).skip(2).collect(Collectors.joining(" "));
 
