@@ -1,4 +1,7 @@
-package org.fissore.kata.socialnetwork;
+package org.fissore.kata.socialnetwork.commands;
+
+import org.fissore.kata.socialnetwork.Message;
+import org.fissore.kata.socialnetwork.storage.MessageStorage;
 
 import java.util.Collections;
 import java.util.List;

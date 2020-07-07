@@ -1,4 +1,6 @@
-package org.fissore.kata.socialnetwork;
+package org.fissore.kata.socialnetwork.storage;
+
+import org.fissore.kata.socialnetwork.Message;
 
 import java.util.LinkedList;
 import java.util.List;

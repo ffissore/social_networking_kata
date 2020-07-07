@@ -1,5 +1,7 @@
 package org.fissore.kata.socialnetwork;
 
+import org.fissore.kata.socialnetwork.commands.Command;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;

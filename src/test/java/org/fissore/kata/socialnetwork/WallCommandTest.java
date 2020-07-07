@@ -1,5 +1,8 @@
 package org.fissore.kata.socialnetwork;
 
+import org.fissore.kata.socialnetwork.commands.WallCommand;
+import org.fissore.kata.socialnetwork.storage.GraphStorage;
+import org.fissore.kata.socialnetwork.storage.MessageStorage;
 import org.junit.Test;
 
 import java.util.List;

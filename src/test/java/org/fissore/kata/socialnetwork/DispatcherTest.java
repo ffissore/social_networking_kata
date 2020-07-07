@@ -1,5 +1,6 @@
 package org.fissore.kata.socialnetwork;
 
+import org.fissore.kata.socialnetwork.commands.*;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package org.fissore.kata.socialnetwork;
+package org.fissore.kata.socialnetwork.storage;
 
 import java.util.*;
 
