@@ -2,9 +2,8 @@ package org.fissore.kata.socialnetwork.commands;
 
 import org.fissore.kata.socialnetwork.CLIParser;
 import org.fissore.kata.socialnetwork.Message;
-import org.fissore.kata.socialnetwork.commands.WallCommand;
-import org.fissore.kata.socialnetwork.storage.GraphStorage;
-import org.fissore.kata.socialnetwork.storage.MessageStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryGraphStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryMessageStorage;
 import org.junit.Test;
 
 import java.util.List;
@@ -15,8 +14,8 @@ public class WallCommandTest {
 
     @Test
     public void wall() {
-        MessageStorage messageStorage = new MessageStorage();
-        GraphStorage graphStorage = new GraphStorage();
+        MemoryMessageStorage messageStorage = new MemoryMessageStorage();
+        MemoryGraphStorage graphStorage = new MemoryGraphStorage();
         WallCommand wallCommand = new WallCommand(messageStorage, graphStorage);
 
         String[] input = new CLIParser().parse("federico wall");

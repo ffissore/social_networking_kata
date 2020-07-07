@@ -1,35 +1,11 @@
 package org.fissore.kata.socialnetwork.storage;
 
-import java.util.*;
+import java.util.Set;
 
-public class GraphStorage {
+public interface GraphStorage {
 
-    private final Map<String, Set<String>> followerToFollowed;
+    Set<String> listFollowedUsers(String followingUser);
 
-    public GraphStorage() {
-        this.followerToFollowed = new HashMap<>();
-    }
+    void addFollower(String followingUser, String followedUser);
 
-    public Set<String> listFollowedUsers(String followingUser) {
-        return new HashSet<>(followerToFollowed.getOrDefault(followingUser, Collections.emptySet()));
-    }
-
-    public void addFollower(String followingUser, String followedUser) {
-        Objects.requireNonNull(followingUser);
-        Objects.requireNonNull(followedUser);
-
-        if (followingUser.equals(followedUser)) {
-            return;
-        }
-
-        if (!followerToFollowed.containsKey(followingUser)) {
-            Set<String> followedUsers = new HashSet<>();
-            followedUsers.add(followedUser);
-            followerToFollowed.put(followingUser, followedUsers);
-            return;
-        }
-
-        Set<String> followedUsers = followerToFollowed.get(followingUser);
-        followedUsers.add(followedUser);
-    }
 }

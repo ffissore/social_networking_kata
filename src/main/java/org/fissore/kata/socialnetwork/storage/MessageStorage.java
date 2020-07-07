@@ -2,26 +2,13 @@ package org.fissore.kata.socialnetwork.storage;
 
 import org.fissore.kata.socialnetwork.Message;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-public class MessageStorage {
+public interface MessageStorage {
 
-    private final LinkedList<Message> messages;
+    List<Message> list(Set<String> users);
 
-    public MessageStorage() {
-        this.messages = new LinkedList<>();
-    }
+    void add(String user, String message);
 
-    public List<Message> list(Set<String> users) {
-        return messages.stream()
-            .filter(message -> users.contains(message.getUser()))
-            .collect(Collectors.toList());
-    }
-
-    public void add(String user, String message) {
-        messages.addFirst(new Message(user, message));
-    }
 }

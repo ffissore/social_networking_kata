@@ -4,8 +4,8 @@ import org.fissore.kata.socialnetwork.commands.FollowCommand;
 import org.fissore.kata.socialnetwork.commands.PostingCommand;
 import org.fissore.kata.socialnetwork.commands.ReadingCommand;
 import org.fissore.kata.socialnetwork.commands.WallCommand;
-import org.fissore.kata.socialnetwork.storage.GraphStorage;
-import org.fissore.kata.socialnetwork.storage.MessageStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryGraphStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryMessageStorage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,8 +15,8 @@ import static org.junit.Assert.assertEquals;
 
 public class CLITest {
 
-    private MessageStorage messageStorage;
-    private GraphStorage graphStorage;
+    private MemoryMessageStorage messageStorage;
+    private MemoryGraphStorage graphStorage;
     private PostingCommand postingCommand;
     private ReadingCommand readingCommand;
     private FollowCommand followCommand;
@@ -24,8 +24,8 @@ public class CLITest {
 
     @Before
     public void setUp() {
-        messageStorage = new MessageStorage();
-        graphStorage = new GraphStorage();
+        messageStorage = new MemoryMessageStorage();
+        graphStorage = new MemoryGraphStorage();
         postingCommand = new PostingCommand(messageStorage);
         readingCommand = new ReadingCommand(messageStorage);
         followCommand = new FollowCommand(graphStorage);

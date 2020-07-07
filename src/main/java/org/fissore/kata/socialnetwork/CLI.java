@@ -5,6 +5,8 @@ import org.fissore.kata.socialnetwork.format.MessageFormatter;
 import org.fissore.kata.socialnetwork.format.SimpleMessageFormatter;
 import org.fissore.kata.socialnetwork.format.WithUserMessageFormatter;
 import org.fissore.kata.socialnetwork.storage.GraphStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryGraphStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryMessageStorage;
 import org.fissore.kata.socialnetwork.storage.MessageStorage;
 
 import java.io.BufferedReader;
@@ -58,8 +60,8 @@ public class CLI {
     }
 
     public static void main(String[] args) throws Exception {
-        MessageStorage messageStorage = new MessageStorage();
-        GraphStorage graphStorage = new GraphStorage();
+        MessageStorage messageStorage = new MemoryMessageStorage();
+        GraphStorage graphStorage = new MemoryGraphStorage();
         PostingCommand postingCommand = new PostingCommand(messageStorage);
         ReadingCommand readingCommand = new ReadingCommand(messageStorage);
         FollowCommand followCommand = new FollowCommand(graphStorage);

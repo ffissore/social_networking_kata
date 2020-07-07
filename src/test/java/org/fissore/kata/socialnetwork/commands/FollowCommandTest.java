@@ -1,7 +1,7 @@
 package org.fissore.kata.socialnetwork.commands;
 
 import org.fissore.kata.socialnetwork.CLIParser;
-import org.fissore.kata.socialnetwork.storage.GraphStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryGraphStorage;
 import org.junit.Test;
 
 import java.util.Set;
@@ -12,7 +12,7 @@ public class FollowCommandTest {
 
     @Test
     public void follow() {
-        GraphStorage graphStorage = new GraphStorage();
+        MemoryGraphStorage graphStorage = new MemoryGraphStorage();
         FollowCommand followCommand = new FollowCommand(graphStorage);
         String[] input = new CLIParser().parse("federico follows vittoria");
         followCommand.handle(input);

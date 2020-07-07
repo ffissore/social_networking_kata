@@ -2,8 +2,7 @@ package org.fissore.kata.socialnetwork.commands;
 
 import org.fissore.kata.socialnetwork.CLIParser;
 import org.fissore.kata.socialnetwork.Message;
-import org.fissore.kata.socialnetwork.commands.ReadingCommand;
-import org.fissore.kata.socialnetwork.storage.MessageStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryMessageStorage;
 import org.junit.Test;
 
 import java.util.List;
@@ -15,7 +14,7 @@ public class ReadingCommandTest {
 
     @Test
     public void reading() {
-        MessageStorage messageStorage = new MessageStorage();
+        MemoryMessageStorage messageStorage = new MemoryMessageStorage();
         ReadingCommand readingCommand = new ReadingCommand(messageStorage);
         String[] inputParts = new CLIParser().parse("federico");
         List<Message> messages = readingCommand.handle(inputParts);

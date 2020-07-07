@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GraphStorageTest {
+public class MemoryGraphStorageTest {
 
     @Test
     public void followingTheSameUserTwiceIsNOOP() {
-        GraphStorage graphStorage = new GraphStorage();
+        MemoryGraphStorage graphStorage = new MemoryGraphStorage();
         graphStorage.addFollower("federico", "vittoria");
         assertEquals(1, graphStorage.listFollowedUsers("federico").size());
 
@@ -18,7 +18,7 @@ public class GraphStorageTest {
 
     @Test
     public void followingYourselfIsNotAllowed() {
-        GraphStorage graphStorage = new GraphStorage();
+        MemoryGraphStorage graphStorage = new MemoryGraphStorage();
         graphStorage.addFollower("federico", "federico");
         assertEquals(0, graphStorage.listFollowedUsers("federico").size());
     }

@@ -2,8 +2,7 @@ package org.fissore.kata.socialnetwork.commands;
 
 import org.fissore.kata.socialnetwork.CLIParser;
 import org.fissore.kata.socialnetwork.Message;
-import org.fissore.kata.socialnetwork.commands.PostingCommand;
-import org.fissore.kata.socialnetwork.storage.MessageStorage;
+import org.fissore.kata.socialnetwork.storage.MemoryMessageStorage;
 import org.junit.Test;
 
 import java.util.Collections;
@@ -16,7 +15,7 @@ public class PostingCommandTest {
 
     @Test
     public void posting() {
-        MessageStorage messageStorage = new MessageStorage();
+        MemoryMessageStorage messageStorage = new MemoryMessageStorage();
         PostingCommand postingCommand = new PostingCommand(messageStorage);
         String[] inputParts = new CLIParser().parse("federico -> hello world!");
         postingCommand.handle(inputParts);
