@@ -1,5 +1,7 @@
-package org.fissore.kata.socialnetwork;
+package org.fissore.kata.socialnetwork.commands;
 
+import org.fissore.kata.socialnetwork.CLIParser;
+import org.fissore.kata.socialnetwork.Message;
 import org.fissore.kata.socialnetwork.commands.ReadingCommand;
 import org.fissore.kata.socialnetwork.storage.MessageStorage;
 import org.junit.Test;
