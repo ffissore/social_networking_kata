@@ -1,11 +1,10 @@
 package org.fissore.kata.socialnetwork.commands;
 
 import org.fissore.kata.socialnetwork.CLIParser;
-import org.fissore.kata.socialnetwork.commands.FollowCommand;
 import org.fissore.kata.socialnetwork.storage.GraphStorage;
 import org.junit.Test;
 
-import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,8 +17,8 @@ public class FollowCommandTest {
         String[] input = new CLIParser().parse("federico follows vittoria");
         followCommand.handle(input);
 
-        List<String> users = graphStorage.listFollowedUsers("federico");
+        Set<String> users = graphStorage.listFollowedUsers("federico");
         assertEquals(1, users.size());
-        assertEquals("vittoria", users.get(0));
+        assertEquals("vittoria", users.stream().findFirst().get());
     }
 }

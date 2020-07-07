@@ -4,25 +4,32 @@ import java.util.*;
 
 public class GraphStorage {
 
-    private final Map<String, List<String>> followerToFollowed;
+    private final Map<String, Set<String>> followerToFollowed;
 
     public GraphStorage() {
         this.followerToFollowed = new HashMap<>();
     }
 
-    public List<String> listFollowedUsers(String followingUser) {
-        return new ArrayList<>(followerToFollowed.getOrDefault(followingUser, Collections.emptyList()));
+    public Set<String> listFollowedUsers(String followingUser) {
+        return new HashSet<>(followerToFollowed.getOrDefault(followingUser, Collections.emptySet()));
     }
 
     public void addFollower(String followingUser, String followedUser) {
+        Objects.requireNonNull(followingUser);
+        Objects.requireNonNull(followedUser);
+
+        if (followingUser.equals(followedUser)) {
+            return;
+        }
+
         if (!followerToFollowed.containsKey(followingUser)) {
-            List<String> followedUsers = new ArrayList<>();
+            Set<String> followedUsers = new HashSet<>();
             followedUsers.add(followedUser);
             followerToFollowed.put(followingUser, followedUsers);
             return;
         }
 
-        List<String> followedUsers = followerToFollowed.get(followingUser);
+        Set<String> followedUsers = followerToFollowed.get(followingUser);
         followedUsers.add(followedUser);
     }
 }

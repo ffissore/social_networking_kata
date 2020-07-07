@@ -21,6 +21,6 @@ public class ReadingCommand implements Command {
 
     @Override
     public List<Message> handle(String[] input) {
-        return messageStorage.list(Collections.singletonList(input[0]));
+        return messageStorage.list(Collections.singleton(input[0]));
     }
 }

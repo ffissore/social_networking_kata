@@ -21,7 +21,7 @@ public class PostingCommandTest {
         String[] inputParts = new CLIParser().parse("federico -> hello world!");
         postingCommand.handle(inputParts);
 
-        List<Message> messages = messageStorage.list(Collections.singletonList("federico"));
+        List<Message> messages = messageStorage.list(Collections.singleton("federico"));
         assertEquals(1, messages.size());
         Message message = messages.get(0);
         assertEquals("federico", message.getUser());

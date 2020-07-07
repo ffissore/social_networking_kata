@@ -5,6 +5,7 @@ import org.fissore.kata.socialnetwork.storage.GraphStorage;
 import org.fissore.kata.socialnetwork.storage.MessageStorage;
 
 import java.util.List;
+import java.util.Set;
 
 public class WallCommand implements Command {
 
@@ -25,7 +26,7 @@ public class WallCommand implements Command {
     public List<Message> handle(String[] input) {
         String followingUser = input[0];
 
-        List<String> users = graphStorage.listFollowedUsers(followingUser);
+        Set<String> users = graphStorage.listFollowedUsers(followingUser);
         users.add(followingUser);
 
         return messageStorage.list(users);
