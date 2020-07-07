@@ -60,6 +60,7 @@ public class CLI {
     }
 
     public static void main(String[] args) throws Exception {
+        System.out.println("Welcome!");
         MessageStorage messageStorage = new MemoryMessageStorage();
         GraphStorage graphStorage = new MemoryGraphStorage();
         PostingCommand postingCommand = new PostingCommand(messageStorage);
