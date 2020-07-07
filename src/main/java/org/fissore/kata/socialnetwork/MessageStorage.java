@@ -12,9 +12,9 @@ public class MessageStorage {
         this.messages = new LinkedList<>();
     }
 
-    public List<Message> list(String user) {
+    public List<Message> list(List<String> users) {
         return messages.stream()
-            .filter(message -> message.getUser().equals(user))
+            .filter(message -> users.contains(message.getUser()))
             .collect(Collectors.toList());
     }
 

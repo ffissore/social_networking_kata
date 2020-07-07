@@ -15,7 +15,7 @@ public class FollowCommandTest {
         String[] input = new CommandLineParser().parse("federico follows vittoria");
         followCommand.handle(input);
 
-        List<String> users = graphStorage.listFollowingUsers("federico");
+        List<String> users = graphStorage.listFollowedUsers("federico");
         assertEquals(1, users.size());
         assertEquals("vittoria", users.get(0));
     }

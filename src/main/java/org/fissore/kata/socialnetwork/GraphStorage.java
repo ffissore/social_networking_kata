@@ -10,8 +10,8 @@ public class GraphStorage {
         this.followerToFollowed = new HashMap<>();
     }
 
-    public List<String> listFollowingUsers(String followingUser) {
-        return followerToFollowed.getOrDefault(followingUser, Collections.emptyList());
+    public List<String> listFollowedUsers(String followingUser) {
+        return new ArrayList<>(followerToFollowed.getOrDefault(followingUser, Collections.emptyList()));
     }
 
     public void addFollower(String followingUser, String followedUser) {
