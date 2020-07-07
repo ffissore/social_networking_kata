@@ -14,7 +14,7 @@ public class DispatcherTest {
 
     @Before
     public void setUp() {
-        dispatcher = new Dispatcher(new PostingCommand(null), new ReadingCommand(null));
+        dispatcher = new Dispatcher(new PostingCommand(null), new ReadingCommand(null), new FollowCommand(null));
     }
 
     @Test
@@ -37,5 +37,13 @@ public class DispatcherTest {
         Optional<Command> command = dispatcher.findCommandFor(inputParts);
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof ReadingCommand);
+    }
+
+    @Test
+    public void followingCommand() {
+        String[] inputParts = new CommandLineParser().parse("federico follows vittoria");
+        Optional<Command> command = dispatcher.findCommandFor(inputParts);
+        assertTrue(command.isPresent());
+        assertTrue(command.get() instanceof FollowCommand);
     }
 }
