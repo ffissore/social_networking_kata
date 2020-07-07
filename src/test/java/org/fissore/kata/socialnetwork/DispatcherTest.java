@@ -18,7 +18,7 @@ public class DispatcherTest {
 
     @Test
     public void postingCommand() {
-        Dispatcher dispatcher = new Dispatcher(new PostingCommand());
+        Dispatcher dispatcher = new Dispatcher(new PostingCommand(null));
         Optional<Command> command = dispatcher.findCommandFor("federico -> hello world!");
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof PostingCommand);
