@@ -14,7 +14,7 @@ public class FollowCommandTest {
     public void follow() {
         GraphStorage graphStorage = new GraphStorage();
         FollowCommand followCommand = new FollowCommand(graphStorage);
-        String[] input = new CommandLineParser().parse("federico follows vittoria");
+        String[] input = new CLIParser().parse("federico follows vittoria");
         followCommand.handle(input);
 
         List<String> users = graphStorage.listFollowedUsers("federico");

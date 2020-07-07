@@ -26,7 +26,7 @@ public class DispatcherTest {
 
     @Test
     public void postingCommand() {
-        String[] inputParts = new CommandLineParser().parse("federico -> hello world!");
+        String[] inputParts = new CLIParser().parse("federico -> hello world!");
         Optional<Command> command = dispatcher.findCommandFor(inputParts);
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof PostingCommand);
@@ -34,7 +34,7 @@ public class DispatcherTest {
 
     @Test
     public void readingCommand() {
-        String[] inputParts = new CommandLineParser().parse("federico");
+        String[] inputParts = new CLIParser().parse("federico");
         Optional<Command> command = dispatcher.findCommandFor(inputParts);
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof ReadingCommand);
@@ -42,7 +42,7 @@ public class DispatcherTest {
 
     @Test
     public void followingCommand() {
-        String[] inputParts = new CommandLineParser().parse("federico follows vittoria");
+        String[] inputParts = new CLIParser().parse("federico follows vittoria");
         Optional<Command> command = dispatcher.findCommandFor(inputParts);
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof FollowCommand);
@@ -50,7 +50,7 @@ public class DispatcherTest {
 
     @Test
     public void wallCommand() {
-        String[] inputParts = new CommandLineParser().parse("federico wall");
+        String[] inputParts = new CLIParser().parse("federico wall");
         Optional<Command> command = dispatcher.findCommandFor(inputParts);
         assertTrue(command.isPresent());
         assertTrue(command.get() instanceof WallCommand);

@@ -17,7 +17,7 @@ public class WallCommandTest {
         GraphStorage graphStorage = new GraphStorage();
         WallCommand wallCommand = new WallCommand(messageStorage, graphStorage);
 
-        String[] input = new CommandLineParser().parse("federico wall");
+        String[] input = new CLIParser().parse("federico wall");
         List<Message> messages = wallCommand.handle(input);
 
         assertEquals(0, messages.size());

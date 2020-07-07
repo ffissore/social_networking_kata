@@ -15,7 +15,7 @@ public class ReadingCommandTest {
     public void reading() {
         MessageStorage messageStorage = new MessageStorage();
         ReadingCommand readingCommand = new ReadingCommand(messageStorage);
-        String[] inputParts = new CommandLineParser().parse("federico");
+        String[] inputParts = new CLIParser().parse("federico");
         List<Message> messages = readingCommand.handle(inputParts);
         assertEquals(0, messages.size());
 
